@@ -2,6 +2,7 @@ package com.wordpress.carledwinj;
 
 import javax.sql.DataSource;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
@@ -11,13 +12,22 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 @SpringBootApplication
 public class SgmanagementApplication {
 
+	@Value("${spring.datasource.driver-class-name}")
+	private String driverClassName;
+	@Value("${spring.datasource.url}")
+	private String url;
+	@Value("${spring.datasource.username}")
+	private String userName;
+	@Value("${spring.datasource.password}")
+	private String userPassword;
+	
 	@Bean
 	public DataSource dataSource(Environment environmet){
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
-		dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-		dataSource.setUrl("jdbc:mysql://localhost:3306/sgmanagementdb");
-		dataSource.setUsername("root");
-		dataSource.setPassword("");
+		dataSource.setDriverClassName(driverClassName);
+		dataSource.setUrl(url);
+		dataSource.setUsername(userName);
+		dataSource.setPassword(userPassword);
 		return dataSource;
 	}
 	
