@@ -26,10 +26,50 @@
 	<div>${success}</div>
 	<br>
 
-	<form:form action="/sgmanagement/usuarios/form" method="get"
-		role="form">
-		<button type="submit" class="btn btn-info">Novo Usuário</button>
-	</form:form>
+	<nav class="navbar" >
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">SG Management</a>
+    </div>
+    <div>
+      <ul class="nav navbar-nav">
+			  <li ><a href="/sgmanagement/ola"><span class="glyphicon glyphicon-home"></span> Início</a></li>
+				  <li class="dropdown">
+				  	<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+				  		<span class="glyphicon glyphicon-file"></span> 
+				  		Cadastros
+				  		<b class="caret"></b>
+				  	</a>
+				  		<ul class="dropdown-menu">
+					  		<li><a href="/sgmanagement/usuarios/form">Usuários</a></li>
+					  	</ul>
+				  </li>
+				  <li class="dropdown">
+				  	<a class="dropdown-toggle" data-toggle="dropdown" href="#" >
+				  		<span class="glyphicon glyphicon-eye-open"></span> 
+				  		Consultas
+				  		<b class="caret"></b>
+				  	</a>
+				  	<ul class="dropdown-menu">
+				  		<li><a href="/sgmanagement/usuarios/list">Usuários</a></li>
+				  	</ul>
+				  </li>
+			  <li><a href="#"><span class="glyphicon glyphicon-calendar"></span> Agenda</a></li>
+			  <li><a href="#"><span class="glyphicon glyphicon-cog"></span> Adminstração</a></li>
+			  <li><a href="#"><span class="glyphicon glyphicon-wrench"></span> Sistema</a></li>
+			  
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+	
+	
+	
 	<br>
 
 	<div align="center">
