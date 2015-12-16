@@ -1,7 +1,5 @@
 package com.wordpress.carledwinj.repositories;
 
-import java.util.List;
-
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
@@ -13,7 +11,6 @@ public interface UsuarioRepository extends CrudRepository<Usuario, Long>{
 	
 	@Query("SELECT DISTINCT(u) FROM Usuario u WHERE u.id=:id")
 	public Usuario findOneById(@Param("id") Long id);
-	
-	public List<Usuario> findAll();
+
 	
 }

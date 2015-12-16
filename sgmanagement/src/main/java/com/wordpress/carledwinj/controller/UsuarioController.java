@@ -1,7 +1,6 @@
 package com.wordpress.carledwinj.controller;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.validation.Valid;
@@ -31,7 +30,7 @@ public class UsuarioController {
 	
 	@RequestMapping("/list")
 	public String list(Model model) throws ServletException, IOException{
-		List<Usuario> listUsuarios = usuario_r.findAll();
+		Iterable<Usuario> listUsuarios = usuario_r.findAll();
 		model.addAttribute("listUsuarios",listUsuarios);
 		return "usuario/listUsuarios";
 	}
@@ -51,15 +50,15 @@ public class UsuarioController {
 	}
 	
 	@RequestMapping(value="/saveUsuario", method=RequestMethod.POST)
-	public ModelAndView save(@ModelAttribute("usuario") @Valid Usuario usuario, BindingResult bindingResult, RedirectAttributes redirectAttributes){
+	public ModelAndView save(Model model, @ModelAttribute("usuario") @Valid Usuario usuario, BindingResult bindingResult, RedirectAttributes redirectAttributes){
 		
 		if(bindingResult.hasErrors()){
 			return form(usuario);
 		}
-		
 		usuario_r.save(usuario);
-		
+		Iterable<Usuario> listUsuarios = usuario_r.findAll();
+		model.addAttribute("listUsuarios",listUsuarios);
 		redirectAttributes.addFlashAttribute("success", "Usuario cadastrado com sucesso!");
-		return new ModelAndView("usuarios/list");
+		return new ModelAndView("usuario/listUsuarios");
 	}
 }
