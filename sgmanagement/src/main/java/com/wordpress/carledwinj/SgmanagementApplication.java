@@ -8,6 +8,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.core.env.Environment;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+
+import com.wordpress.carledwinj.security.WebSecurityConfig;
 
 @SpringBootApplication
 public class SgmanagementApplication {
@@ -33,5 +36,10 @@ public class SgmanagementApplication {
 	
     public static void main(String[] args) {
         SpringApplication.run(SgmanagementApplication.class, args);
+    }
+    
+    @Bean
+    public WebSecurityConfigurerAdapter webSecurityConfigurerAdapter(){
+    	return new WebSecurityConfig();
     }
 }
