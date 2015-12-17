@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class LoaderSpringBootController {
 
 	@ResponseBody
-	@RequestMapping("/")
+	@RequestMapping("/index")
 	public String index(){
 		return "application on air";
 	}

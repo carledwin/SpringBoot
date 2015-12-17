@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.wordpress.carledwinj.model.Role;
 import com.wordpress.carledwinj.model.Usuario;
 import com.wordpress.carledwinj.repositories.UsuarioRepository;
 
@@ -55,6 +56,7 @@ public class UsuarioController {
 		if(bindingResult.hasErrors()){
 			return form(usuario);
 		}
+		usuario.setRole(Role.USER);
 		usuario_r.save(usuario);
 		Iterable<Usuario> listUsuarios = usuario_r.findAll();
 		model.addAttribute("listUsuarios",listUsuarios);

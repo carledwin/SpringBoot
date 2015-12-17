@@ -25,6 +25,8 @@ public class Usuario {
 	private String password;
 	
 	private String status;
+	
+	private Role role;
 
 	public Long getCodigo() {
 		return codigo;
@@ -64,6 +66,14 @@ public class Usuario {
 
 	public void setStatus(String status) {
 		this.status = status;
+	}
+
+	public Role getRole() {
+		return role;
+	}
+
+	public void setRole(Role role) {
+		this.role = role;
 	}
 	
 	
